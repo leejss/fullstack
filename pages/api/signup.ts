@@ -5,8 +5,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const salt = genSaltSync();
   const {} = req.body;
+  // Generate a user
   try {
-  } catch (
-    
-  ) {}
+  } catch {}
 };
