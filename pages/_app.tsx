@@ -3,14 +3,28 @@ import theme from "../styles/theme";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
 
-function MyApp({ Component, pageProps }: AppProps) {
+type MyComponent = {
+  pageType: "auth";
+};
+
+type MyAppProps = {
+  Component: MyComponent;
+};
+
+function MyApp({ Component, pageProps }: AppProps<MyAppProps> & MyAppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Layout>
+      {Component.pageType === "auth" ? (
         <Component {...pageProps} />
-      </Layout>
+      ) : (
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      )}
     </ChakraProvider>
   );
 }
 
 export default MyApp;
+
+// 1. Per page layout
