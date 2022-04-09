@@ -6,7 +6,6 @@ import type { NextApiHandler } from "next";
 export const validateRoute =
   (handler: any): NextApiHandler =>
   async (req, res) => {
-    // Token -> cookies -> response
     const token = req.cookies.ACCESS_TOKEN;
     if (token) {
       let user;
