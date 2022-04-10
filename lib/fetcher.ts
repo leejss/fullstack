@@ -1,6 +1,9 @@
 // Get JSON response
-export default async function fetcher(url: string, data?: unknown) {
-  return fetch(`${window.location.origin}/api/${url}`, {
+export default async function fetcher<T = any>(
+  url: string,
+  data?: unknown
+): Promise<T> {
+  const res = await fetch(`${window.location.origin}/api/${url}`, {
     method: data ? "POST" : "GET",
     credentials: "include",
     headers: {
@@ -8,4 +11,6 @@ export default async function fetcher(url: string, data?: unknown) {
     },
     body: JSON.stringify(data),
   });
+
+  return res.json();
 }

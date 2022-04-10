@@ -1,3 +1,5 @@
+import { useMe } from "../hooks";
+
 const Home = () => {
   return <div></div>;
 };

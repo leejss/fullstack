@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 
 const protectedRotues = ["/"];
 
+// run before entering the index page
+
 export default function middleware(req: NextRequest) {
   const pathname = req.nextUrl.pathname;
   if (protectedRotues.includes(pathname)) {

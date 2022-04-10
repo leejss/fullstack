@@ -1,3 +1,4 @@
+import usePlaylist from "../hooks/usePlaylist";
 import {
   Box,
   List,
@@ -36,9 +37,10 @@ const navItems = [
   },
 ];
 
-const playlist = new Array(50).fill(1).map((_, index) => `playlist - ${index}`);
-
 const Sidebar = () => {
+  const { playlist } = usePlaylist();
+
+  if (!playlist) return <></>;
   return (
     <Box w="100%" h="calc(100vh - 100px)" bg="#000" paddingX="5px">
       <Box py="20px" h="100%">
@@ -66,12 +68,12 @@ const Sidebar = () => {
           <Box flex={1} overflowY="auto" w="100%">
             <List spacing={2}>
               {playlist.map((item) => (
-                <ListItem px="20px" fontSize="16px" key={item}>
+                <ListItem px="20px" fontSize="16px" key={item.id}>
                   <LinkBox color="#fff">
-                    <Link href={item} passHref>
+                    <Link href={item.name} passHref>
                       <LinkOverlay>
                         <ListIcon mr="20px" />
-                        {item}
+                        {item.name}
                       </LinkOverlay>
                     </Link>
                   </LinkBox>
