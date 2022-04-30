@@ -89,7 +89,7 @@ const AuthForm: FC<AuthFormProps> = ({ mode }) => {
               },
             }}
           >
-            {mode === "signin" ? "Signin" : "Signup"}
+            {mode === "signin" ? "로그인" : "회원가입"}
           </Button>
         </form>
       </Flex>

@@ -6,7 +6,6 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { email, password } = req.body as { email: string; password: string };
-  console.log("running signin");
 
   const user = await prisma.user.findUnique({
     where: {
@@ -36,6 +35,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         secure: process.env.NODE_ENV === "production",
       })
     );
+
     res.status(200);
     res.json(user);
   } else {

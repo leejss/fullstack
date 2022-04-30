@@ -40,7 +40,6 @@ const navItems = [
 const Sidebar = () => {
   const { playlist } = usePlaylist();
 
-  if (!playlist) return <></>;
   return (
     <Box w="100%" h="calc(100vh - 100px)" bg="#000" paddingX="5px">
       <Box py="20px" h="100%">
@@ -67,7 +66,7 @@ const Sidebar = () => {
           <Divider color="gray.800" />
           <Box flex={1} overflowY="auto" w="100%">
             <List spacing={2}>
-              {playlist.map((item) => (
+              {playlist?.map((item) => (
                 <ListItem px="20px" fontSize="16px" key={item.id}>
                   <LinkBox color="#fff">
                     <Link href={item.name} passHref>
