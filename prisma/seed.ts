@@ -1,8 +1,6 @@
+import prisma from "../lib/prisma";
 import { artistsData } from "./songData";
-import { PrismaClient } from "@prisma/client";
 import { genSaltSync, hashSync } from "bcrypt";
-
-const prisma = new PrismaClient();
 
 const run = async () => {
   // Seed Artists and songs
